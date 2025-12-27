@@ -7,14 +7,7 @@
 
 body {
   min-height: 100vh;
-  background-color: #fdf4ff;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(236, 72, 153, 0.18), transparent 32%),
-    radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.14), transparent 30%),
-    radial-gradient(circle at 50% 65%, rgba(16, 185, 129, 0.16), transparent 35%),
-    linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+  background-color: #f5f3ff;
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -34,7 +27,7 @@ body {
 
 .navbar,
 .footer {
-  background: linear-gradient(120deg, rgba(59, 130, 246, 0.12), rgba(236, 72, 153, 0.12));
+  background-color: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
 }
@@ -42,7 +35,7 @@ body {
 .colorful-hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #2563eb, #6366f1, #ec4899);
+  background: #2563eb;
   color: #f8fafc;
   border-radius: 1.25rem;
   box-shadow: 0 25px 60px -28px rgba(59, 130, 246, 0.65);
@@ -52,8 +45,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 25% 20%, rgba(255,255,255,0.24), transparent 50%),
-              radial-gradient(circle at 70% 60%, rgba(255,255,255,0.18), transparent 50%);
+  background: rgba(255, 255, 255, 0.12);
   pointer-events: none;
 }
 
@@ -74,10 +66,10 @@ body {
   color: #0f172a;
 }
 
-.gradient-sunset { background: linear-gradient(135deg, #fef3c7, #fbcfe8); }
-.gradient-aurora { background: linear-gradient(135deg, #a5f3fc, #c7d2fe); }
-.gradient-mint { background: linear-gradient(135deg, #bbf7d0, #a5f3fc); }
-.gradient-blush { background: linear-gradient(135deg, #fecdd3, #e0f2fe); }
+.gradient-sunset { background: #fbcfe8; }
+.gradient-aurora { background: #c7d2fe; }
+.gradient-mint { background: #a5f3fc; }
+.gradient-blush { background: #fecdd3; }
 
 .glass-panel {
   background: rgba(255, 255, 255, 0.7);
@@ -92,7 +84,7 @@ body {
 .carousel-card img { border-radius: 1rem; }
 
 .step-indicator .step:before {
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  background: #6366f1;
 }
 
 .type-sample {
