@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="font-sans">
+  <div class="drawer lg:drawer-open">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col">
+      <div class="navbar bg-base-100 shadow-md fixed top-0 inset-x-0 z-30">
+        <div class="flex-none lg:hidden">
+          <label for="drawer-toggle" class="btn btn-square btn-ghost">
+            <i class="ri-menu-2-line text-xl"></i>
+          </label>
+        </div>
+        <div class="flex-1 px-2 lg:px-4">
+          <a class="text-xl font-bold">Form</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle" aria-label="Notifications">
+            <i class="ri-notification-3-line text-xl"></i>
+          </button>
+          <button class="btn btn-ghost btn-circle" data-theme-toggle aria-label="Toggle theme">
+            <i id="theme-icon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn-icon" onclick="showToast('Form đã lưu', 'success')">
+            <i class="ri-save-3-line"></i>Lưu nhanh
+          </button>
+        </div>
+      </div>
+
+      <main class="main-container p-4 lg:p-6 space-y-6 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="card bg-base-100 shadow-sm lg:col-span-2">
+            <div class="card-body space-y-4">
+              <h2 class="card-title">Form nhập liệu</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="form-control w-full">
+                  <div class="label"><span class="label-text">Họ và tên</span></div>
+                  <input type="text" placeholder="Nguyễn Văn A" class="input input-bordered w-full" required />
+                  <div class="label"><span class="label-text-alt text-success">Bắt buộc</span></div>
+                </label>
+                <label class="form-control w-full">
+                  <div class="label"><span class="label-text">Email</span></div>
+                  <input type="email" placeholder="you@example.com" class="input input-bordered w-full" required />
+                  <div class="label"><span class="label-text-alt text-error">Email không hợp lệ</span></div>
+                </label>
+                <label class="form-control w-full">
+                  <div class="label"><span class="label-text">Phân quyền</span></div>
+                  <select class="select select-bordered" required>
+                    <option>Admin</option>
+                    <option>Editor</option>
+                    <option>Viewer</option>
+                  </select>
+                </label>
+                <label class="form-control w-full">
+                  <div class="label"><span class="label-text">Ngày sinh</span></div>
+                  <input type="date" class="input input-bordered" />
+                </label>
+              </div>
+
+              <label class="form-control">
+                <div class="label"><span class="label-text">Giới thiệu ngắn</span></div>
+                <textarea class="textarea textarea-bordered" rows="3" placeholder="Mô tả về bạn"></textarea>
+              </label>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input type="checkbox" class="checkbox checkbox-primary" checked />
+                  <span class="label-text">Kích hoạt tài khoản</span>
+                </label>
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input type="radio" name="plan" class="radio radio-secondary" checked />
+                  <span class="label-text">Gói Pro</span>
+                </label>
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input type="radio" name="plan" class="radio" />
+                  <span class="label-text">Gói Free</span>
+                </label>
+              </div>
+
+              <div class="form-control">
+                <label class="label cursor-pointer">
+                  <span class="label-text">Nhận thông báo</span>
+                  <input type="checkbox" class="toggle toggle-primary" checked />
+                </label>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button class="btn btn-primary btn-icon"><i class="ri-send-plane-line"></i>Submit</button>
+                <button class="btn btn-outline btn-icon"><i class="ri-loader-4-line animate-spin"></i>Đang gửi...</button>
+                <button class="btn btn-disabled btn-icon" disabled><i class="ri-close-line"></i>Disabled</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body space-y-4">
+              <h2 class="card-title">Trạng thái</h2>
+              <div class="alert alert-info">
+                <i class="ri-information-line"></i>
+                <span>Form hỗ trợ validation HTML5 và trạng thái loading.</span>
+              </div>
+              <div class="form-control">
+                <label class="label"><span class="label-text">Tệp đính kèm</span></label>
+                <input type="file" class="file-input file-input-bordered w-full" />
+              </div>
+              <div class="divider">Preview</div>
+              <div class="flex items-center gap-3">
+                <span class="loading loading-spinner loading-md text-primary"></span>
+                <p class="text-sm">Đang upload tài liệu...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer items-center p-4 bg-base-200 text-base-content">
+        <aside class="flex items-center gap-2">
+          <i class="ri-layout-2-line text-xl"></i>
+          <p class="font-semibold">Admin Template</p>
+        </aside>
+        <nav class="flex items-center gap-4 justify-end">
+          <a class="link link-hover" href="https://daisyui.com/">DaisyUI</a>
+          <a class="link link-hover" href="https://tailwindcss.com/">Tailwind</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div class="drawer-side">
+      <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside class="menu w-72 min-h-full bg-base-200 p-4">
+        <div class="flex items-center gap-3 px-2 pb-4 border-b border-base-300 mb-4">
+          <span class="btn btn-square btn-primary btn-sm text-lg"><i class="ri-layout-grid-fill"></i></span>
+          <div>
+            <p class="font-bold">Daisy Admin</p>
+            <p class="text-xs opacity-70">Template copy nhanh</p>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+          <li><a href="table.html"><i class="ri-table-line"></i>Table</a></li>
+          <li><a href="form.html"><i class="ri-file-list-3-line"></i>Form</a></li>
+          <li><a href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+          <li><a href="settings.html"><i class="ri-settings-3-line"></i>Settings</a></li>
+          <li class="menu-title">Auth</li>
+          <li><a href="auth-login.html"><i class="ri-login-circle-line"></i>Login</a></li>
+          <li><a href="auth-register.html"><i class="ri-user-add-line"></i>Register</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.11/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>

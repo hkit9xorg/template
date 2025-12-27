@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-base-200 animate__animated animate__fadeIn">
+  <div class="card w-full max-w-md bg-base-100 shadow-xl">
+    <div class="card-body space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="card-title">Đăng nhập</h2>
+        <button class="btn btn-ghost btn-sm" data-theme-toggle aria-label="Toggle theme"><i id="theme-icon" class="ri-sun-line"></i></button>
+      </div>
+      <form class="space-y-3">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">Email</span></div>
+          <input type="email" placeholder="you@example.com" class="input input-bordered w-full" required />
+        </label>
+        <label class="form-control w-full">
+          <div class="label flex justify-between">
+            <span class="label-text">Mật khẩu</span>
+            <button type="button" class="text-sm link" id="toggle-password">Hiện</button>
+          </div>
+          <input type="password" id="password" class="input input-bordered" required />
+        </label>
+        <button class="btn btn-primary w-full btn-icon"><i class="ri-login-circle-line"></i>Đăng nhập</button>
+      </form>
+      <div class="text-sm text-center">Chưa có tài khoản? <a href="auth-register.html" class="link">Đăng ký ngay</a></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle = document.getElementById('toggle-password');
+      const input = document.getElementById('password');
+      toggle.addEventListener('click', () => {
+        const nextType = input.getAttribute('type') === 'password' ? 'text' : 'password';
+        input.setAttribute('type', nextType);
+        toggle.textContent = nextType === 'password' ? 'Hiện' : 'Ẩn';
+      });
+    });
+  </script>
+</body>
+</html>

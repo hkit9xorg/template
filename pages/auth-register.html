@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-base-200 animate__animated animate__fadeIn">
+  <div class="card w-full max-w-xl bg-base-100 shadow-xl">
+    <div class="card-body space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="card-title">Tạo tài khoản</h2>
+        <button class="btn btn-ghost btn-sm" data-theme-toggle aria-label="Toggle theme"><i id="theme-icon" class="ri-sun-line"></i></button>
+      </div>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">Họ tên</span></div>
+          <input type="text" class="input input-bordered" required />
+        </label>
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">Email</span></div>
+          <input type="email" class="input input-bordered" required />
+        </label>
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">Mật khẩu</span></div>
+          <input type="password" class="input input-bordered" required />
+        </label>
+        <label class="form-control w-full">
+          <div class="label"><span class="label-text">Nhập lại mật khẩu</span></div>
+          <input type="password" class="input input-bordered" required />
+        </label>
+        <label class="form-control w-full md:col-span-2">
+          <div class="label"><span class="label-text">Vai trò</span></div>
+          <select class="select select-bordered">
+            <option>Admin</option>
+            <option>Editor</option>
+            <option>Viewer</option>
+          </select>
+        </label>
+        <label class="label cursor-pointer md:col-span-2 justify-start gap-3">
+          <input type="checkbox" class="checkbox checkbox-primary" required />
+          <span class="label-text">Đồng ý điều khoản sử dụng</span>
+        </label>
+        <button class="btn btn-primary btn-icon md:col-span-2"><i class="ri-user-add-line"></i>Đăng ký</button>
+      </form>
+      <div class="text-sm text-center">Đã có tài khoản? <a href="auth-login.html" class="link">Đăng nhập</a></div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/theme.js"></script>
+</body>
+</html>

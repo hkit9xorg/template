@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="font-sans">
+  <div class="drawer lg:drawer-open">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col">
+      <div class="navbar bg-base-100 shadow-md fixed top-0 inset-x-0 z-30">
+        <div class="flex-none lg:hidden">
+          <label for="drawer-toggle" class="btn btn-square btn-ghost">
+            <i class="ri-menu-2-line text-xl"></i>
+          </label>
+        </div>
+        <div class="flex-1 px-2 lg:px-4">
+          <a class="text-xl font-bold">Dashboard</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle" aria-label="Notifications">
+            <i class="ri-notification-3-line text-xl"></i>
+          </button>
+          <button class="btn btn-ghost btn-circle" data-theme-toggle aria-label="Toggle theme">
+            <i id="theme-icon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn-icon" data-modal-open data-modal-message="Bạn có muốn chạy báo cáo ngay bây giờ?">
+            <i class="ri-flashlight-line"></i>
+            Run report
+          </button>
+        </div>
+      </div>
+
+      <main class="main-container p-4 lg:p-6 space-y-6 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+          <div class="card bg-base-100 shadow-sm card-hover">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm opacity-70">Doanh thu</p>
+                  <h3 class="text-2xl font-bold">₫128,2m</h3>
+                </div>
+                <span class="btn btn-circle btn-ghost btn-sm"><i class="ri-line-chart-line text-xl text-primary"></i></span>
+              </div>
+              <p class="text-success text-sm">+12% MoM</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm card-hover">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm opacity-70">Người dùng mới</p>
+                  <h3 class="text-2xl font-bold">1,245</h3>
+                </div>
+                <span class="btn btn-circle btn-ghost btn-sm"><i class="ri-user-add-line text-xl text-secondary"></i></span>
+              </div>
+              <p class="text-success text-sm">+8% so với tuần trước</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm card-hover">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm opacity-70">Ticket mở</p>
+                  <h3 class="text-2xl font-bold">24</h3>
+                </div>
+                <span class="btn btn-circle btn-ghost btn-sm"><i class="ri-customer-service-2-line text-xl text-warning"></i></span>
+              </div>
+              <p class="text-warning text-sm">5 cần xử lý gấp</p>
+            </div>
+          </div>
+          <div class="card bg-base-100 shadow-sm card-hover">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-sm opacity-70">Tỉ lệ chuyển đổi</p>
+                  <h3 class="text-2xl font-bold">4.6%</h3>
+                </div>
+                <span class="btn btn-circle btn-ghost btn-sm"><i class="ri-pie-chart-2-line text-xl text-accent"></i></span>
+              </div>
+              <p class="text-success text-sm">+0.3% từ chiến dịch A</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+          <div class="card bg-base-100 shadow-sm xl:col-span-2">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title">Đơn hàng mới</h2>
+                <button class="btn btn-ghost btn-sm" data-modal-open data-modal-message="Xác nhận duyệt toàn bộ đơn đang chờ?">
+                  <i class="ri-shield-check-line"></i>Duyệt nhanh
+                </button>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="table" data-table>
+                  <thead>
+                    <tr>
+                      <th>Mã</th>
+                      <th>Khách hàng</th>
+                      <th>Giá trị</th>
+                      <th>Trạng thái</th>
+                      <th>Ngày</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>#INV-5012</td><td>Linh Dao</td><td>₫4,500,000</td><td><span class="badge badge-success">Đã thanh toán</span></td><td>Hôm nay</td></tr>
+                    <tr><td>#INV-5013</td><td>Quang Tran</td><td>₫2,100,000</td><td><span class="badge badge-warning">Chờ</span></td><td>Hôm nay</td></tr>
+                    <tr><td>#INV-5014</td><td>Mai Pham</td><td>₫8,200,000</td><td><span class="badge badge-info">Đang giao</span></td><td>Hôm qua</td></tr>
+                    <tr><td>#INV-5015</td><td>Son Nguyen</td><td>₫1,200,000</td><td><span class="badge badge-success">Đã thanh toán</span></td><td>2 ngày trước</td></tr>
+                    <tr><td>#INV-5016</td><td>My Hoang</td><td>₫3,000,000</td><td><span class="badge badge-error">Hủy</span></td><td>3 ngày trước</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="flex items-center justify-between mt-4 text-sm">
+                <p class="opacity-70">Tổng hợp nhanh 7 ngày gần nhất.</p>
+                <button id="table-refresh" class="btn btn-outline btn-sm btn-icon">
+                  <i class="ri-refresh-line"></i>Làm mới
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body space-y-4">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title">Hoạt động</h2>
+                <span class="badge badge-primary">Live</span>
+              </div>
+              <ul class="timeline timeline-vertical">
+                <li>
+                  <div class="timeline-start">09:24</div>
+                  <div class="timeline-middle"><i class="ri-check-line text-success"></i></div>
+                  <div class="timeline-end timeline-box">Đã xử lý ticket #234</div>
+                </li>
+                <li>
+                  <div class="timeline-start">10:05</div>
+                  <div class="timeline-middle"><i class="ri-mail-line text-info"></i></div>
+                  <div class="timeline-end timeline-box">Gửi báo cáo tuần cho team</div>
+                </li>
+                <li>
+                  <div class="timeline-start">11:10</div>
+                  <div class="timeline-middle"><i class="ri-error-warning-line text-warning"></i></div>
+                  <div class="timeline-end timeline-box">Cảnh báo CPU server 75%</div>
+                </li>
+                <li>
+                  <div class="timeline-start">12:45</div>
+                  <div class="timeline-middle"><i class="ri-user-voice-line text-secondary"></i></div>
+                  <div class="timeline-end timeline-box">Khách hàng đánh giá 5⭐</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer items-center p-4 bg-base-200 text-base-content">
+        <aside class="flex items-center gap-2">
+          <i class="ri-layout-2-line text-xl"></i>
+          <p class="font-semibold">Admin Template</p>
+        </aside>
+        <nav class="flex items-center gap-4 justify-end">
+          <a class="link link-hover" href="https://daisyui.com/">DaisyUI</a>
+          <a class="link link-hover" href="https://tailwindcss.com/">Tailwind</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div class="drawer-side">
+      <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside class="menu w-72 min-h-full bg-base-200 p-4">
+        <div class="flex items-center gap-3 px-2 pb-4 border-b border-base-300 mb-4">
+          <span class="btn btn-square btn-primary btn-sm text-lg"><i class="ri-layout-grid-fill"></i></span>
+          <div>
+            <p class="font-bold">Daisy Admin</p>
+            <p class="text-xs opacity-70">Template copy nhanh</p>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+          <li><a href="table.html"><i class="ri-table-line"></i>Table</a></li>
+          <li><a href="form.html"><i class="ri-file-list-3-line"></i>Form</a></li>
+          <li><a href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+          <li><a href="settings.html"><i class="ri-settings-3-line"></i>Settings</a></li>
+          <li class="menu-title">Auth</li>
+          <li><a href="auth-login.html"><i class="ri-login-circle-line"></i>Login</a></li>
+          <li><a href="auth-register.html"><i class="ri-user-add-line"></i>Register</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <dialog id="confirm-modal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Xác nhận</h3>
+      <p class="py-4" id="modal-message">Bạn có chắc chắn muốn tiếp tục?</p>
+      <div class="modal-action">
+        <button class="btn" data-drawer-close>Hủy</button>
+        <button class="btn btn-primary" id="modal-confirm">Đồng ý</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.7.2/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.11/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/datatable.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>

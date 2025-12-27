@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="font-sans">
+  <div class="drawer lg:drawer-open">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col">
+      <div class="navbar bg-base-100 shadow-md fixed top-0 inset-x-0 z-30">
+        <div class="flex-none lg:hidden">
+          <label for="drawer-toggle" class="btn btn-square btn-ghost">
+            <i class="ri-menu-2-line text-xl"></i>
+          </label>
+        </div>
+        <div class="flex-1 px-2 lg:px-4">
+          <a class="text-xl font-bold">Settings</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle" aria-label="Notifications">
+            <i class="ri-notification-3-line text-xl"></i>
+          </button>
+          <button class="btn btn-ghost btn-circle" data-theme-toggle aria-label="Toggle theme">
+            <i id="theme-icon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn-icon" onclick="showToast('Đã lưu cài đặt', 'success')"><i class="ri-check-line"></i>Lưu</button>
+        </div>
+      </div>
+
+      <main class="main-container p-4 lg:p-6 space-y-6 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body space-y-4">
+              <h2 class="card-title">Giao diện</h2>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Dark / Light mode</span>
+                  <button class="btn btn-ghost btn-sm theme-switch btn-icon" data-theme-toggle>
+                    <i id="theme-icon" class="ri-sun-line"></i>Toggle
+                  </button>
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Hiển thị sidebar compact</span>
+                  <input type="checkbox" class="toggle toggle-primary" />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Hiệu ứng chuyển trang</span>
+                  <input type="checkbox" class="toggle toggle-secondary" checked />
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body space-y-4">
+              <h2 class="card-title">Thông báo</h2>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Email notification</span>
+                  <input type="checkbox" class="toggle toggle-primary" checked />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Push notification</span>
+                  <input type="checkbox" class="toggle toggle-secondary" />
+                </label>
+              </div>
+              <div class="form-control">
+                <label class="label cursor-pointer justify-between">
+                  <span class="label-text">Cảnh báo hệ thống</span>
+                  <input type="checkbox" class="toggle toggle-warning" checked />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card bg-base-100 shadow-sm">
+          <div class="card-body space-y-4">
+            <h2 class="card-title">Tùy chỉnh</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <label class="form-control">
+                <div class="label"><span class="label-text">Ngôn ngữ</span></div>
+                <select class="select select-bordered">
+                  <option>Tiếng Việt</option>
+                  <option>English</option>
+                  <option>日本語</option>
+                </select>
+              </label>
+              <label class="form-control">
+                <div class="label"><span class="label-text">Đơn vị thời gian</span></div>
+                <select class="select select-bordered">
+                  <option>24h</option>
+                  <option>12h</option>
+                </select>
+              </label>
+              <label class="form-control">
+                <div class="label"><span class="label-text">Múi giờ</span></div>
+                <input type="text" class="input input-bordered" value="Asia/Ho_Chi_Minh" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer items-center p-4 bg-base-200 text-base-content">
+        <aside class="flex items-center gap-2">
+          <i class="ri-layout-2-line text-xl"></i>
+          <p class="font-semibold">Admin Template</p>
+        </aside>
+        <nav class="flex items-center gap-4 justify-end">
+          <a class="link link-hover" href="https://daisyui.com/">DaisyUI</a>
+          <a class="link link-hover" href="https://tailwindcss.com/">Tailwind</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div class="drawer-side">
+      <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside class="menu w-72 min-h-full bg-base-200 p-4">
+        <div class="flex items-center gap-3 px-2 pb-4 border-b border-base-300 mb-4">
+          <span class="btn btn-square btn-primary btn-sm text-lg"><i class="ri-layout-grid-fill"></i></span>
+          <div>
+            <p class="font-bold">Daisy Admin</p>
+            <p class="text-xs opacity-70">Template copy nhanh</p>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+          <li><a href="table.html"><i class="ri-table-line"></i>Table</a></li>
+          <li><a href="form.html"><i class="ri-file-list-3-line"></i>Form</a></li>
+          <li><a href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+          <li><a href="settings.html"><i class="ri-settings-3-line"></i>Settings</a></li>
+          <li class="menu-title">Auth</li>
+          <li><a href="auth-login.html"><i class="ri-login-circle-line"></i>Login</a></li>
+          <li><a href="auth-register.html"><i class="ri-user-add-line"></i>Register</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>
