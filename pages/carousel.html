@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carousel | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="font-sans">
+  <div class="drawer lg:drawer-open">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col">
+      <div class="navbar bg-base-100 shadow-md fixed top-0 inset-x-0 z-30">
+        <div class="flex-none lg:hidden">
+          <label for="drawer-toggle" class="btn btn-square btn-ghost">
+            <i class="ri-menu-2-line text-xl"></i>
+          </label>
+        </div>
+        <div class="flex-1 px-2 lg:px-4">
+          <a class="text-xl font-bold">Carousel</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle" aria-label="Notifications">
+            <i class="ri-notification-3-line text-xl"></i>
+          </button>
+          <button class="btn btn-ghost btn-circle" data-theme-toggle aria-label="Toggle theme">
+            <i id="theme-icon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="btn btn-primary btn-sm btn-icon" data-modal-open data-modal-message="Lưu cấu hình carousel mới?">
+            <i class="ri-save-3-line"></i>Lưu nhanh
+          </button>
+        </div>
+      </div>
+
+      <main class="main-container p-4 lg:p-6 space-y-6 animate__animated animate__fadeIn">
+        <section class="colorful-hero p-6 lg:p-8 text-white shadow-glow">
+          <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div class="space-y-2">
+              <p class="badge badge-lg">Slider đa sắc</p>
+              <h1 class="text-3xl lg:text-4xl font-bold leading-tight">Carousel nổi bật cho landing page</h1>
+              <p class="text-sm lg:text-base opacity-90 max-w-2xl">Tạo điểm nhấn thị giác với ảnh, gradient và card nổi. Kéo, nhấn hoặc tự động chuyển slide.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="badge badge-soft">Autoplay</span>
+                <span class="badge badge-soft">Navigation</span>
+                <span class="badge badge-soft">Hover pause</span>
+              </div>
+            </div>
+            <div class="glass-panel p-4 rounded-xl space-y-2 min-w-[260px]">
+              <div class="flex items-center justify-between">
+                <span class="text-sm opacity-80">Slide chính</span>
+                <span class="badge badge-secondary">03</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm opacity-80">Thời gian</span>
+                <span class="font-semibold">4s</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm opacity-80">Hiệu ứng</span>
+                <span class="badge badge-primary badge-outline">Fade</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="lg:col-span-2 card bg-base-100 shadow-floating">
+            <div class="card-body">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title">Carousel gradient</h2>
+                <div class="flex gap-2">
+                  <button class="btn btn-ghost btn-sm" data-modal-open data-modal-message="Bật tự động chạy slide?">
+                    <i class="ri-play-circle-line"></i>Tự động
+                  </button>
+                  <button class="btn btn-primary btn-sm">Thêm slide</button>
+                </div>
+              </div>
+              <div class="carousel w-full rounded-2xl shadow-lg">
+                <div id="slide1" class="carousel-item relative w-full">
+                  <div class="hero min-h-[360px] rounded-2xl" style="background-image: linear-gradient(120deg,#0ea5e9,#6366f1,#ec4899);">
+                    <div class="hero-overlay bg-opacity-20"></div>
+                    <div class="hero-content text-neutral-content text-left">
+                      <div class="max-w-xl space-y-2">
+                        <p class="badge badge-soft">Digital</p>
+                        <h2 class="text-3xl font-bold">Kể câu chuyện sản phẩm</h2>
+                        <p class="opacity-90">Đưa hình ảnh, copy và CTA lên một layout rực rỡ giúp người xem chú ý ngay lập tức.</p>
+                        <div class="flex gap-2">
+                          <a href="#" class="btn btn-primary btn-sm">Xem ngay</a>
+                          <a href="#" class="btn btn-outline btn-sm">Tìm hiểu</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide3" class="btn btn-circle">❮</a>
+                    <a href="#slide2" class="btn btn-circle">❯</a>
+                  </div>
+                </div>
+                <div id="slide2" class="carousel-item relative w-full">
+                  <div class="hero min-h-[360px] rounded-2xl" style="background-image: linear-gradient(135deg,#22c55e,#a5f3fc,#c084fc);">
+                    <div class="hero-overlay bg-opacity-10"></div>
+                    <div class="hero-content text-neutral-content text-left">
+                      <div class="max-w-xl space-y-2">
+                        <p class="badge badge-soft">Team</p>
+                        <h2 class="text-3xl font-bold">Làm việc nhóm vui hơn</h2>
+                        <p class="opacity-90">Chèn testimonial và avatar giúp trải nghiệm sống động, phù hợp section giới thiệu đội ngũ.</p>
+                        <div class="avatar-group -space-x-3">
+                          <div class="avatar"><div class="w-10"><img src="https://i.pravatar.cc/150?img=4" alt="avatar" /></div></div>
+                          <div class="avatar"><div class="w-10"><img src="https://i.pravatar.cc/150?img=14" alt="avatar" /></div></div>
+                          <div class="avatar"><div class="w-10"><img src="https://i.pravatar.cc/150?img=22" alt="avatar" /></div></div>
+                          <div class="avatar placeholder"><div class="w-10 bg-neutral text-neutral-content"><span>+8</span></div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide1" class="btn btn-circle">❮</a>
+                    <a href="#slide3" class="btn btn-circle">❯</a>
+                  </div>
+                </div>
+                <div id="slide3" class="carousel-item relative w-full">
+                  <div class="hero min-h-[360px] rounded-2xl" style="background-image: linear-gradient(135deg,#fde68a,#fca5a5,#a5b4fc);">
+                    <div class="hero-overlay bg-opacity-10"></div>
+                    <div class="hero-content text-neutral-content text-left">
+                      <div class="max-w-xl space-y-2">
+                        <p class="badge badge-soft">Sự kiện</p>
+                        <h2 class="text-3xl font-bold">Banner cho chiến dịch</h2>
+                        <p class="opacity-90">Highlight thời gian, CTA và khối countdown để người dùng dễ chuyển đổi.</p>
+                        <div class="grid grid-flow-col gap-4 auto-cols-max text-center">
+                          <div class="flex flex-col p-2 bg-white/20 rounded-box text-white">
+                            <span class="countdown font-mono text-3xl"><span style="--value:07;"></span></span>
+                            <span class="text-sm">Ngày</span>
+                          </div>
+                          <div class="flex flex-col p-2 bg-white/20 rounded-box text-white">
+                            <span class="countdown font-mono text-3xl"><span style="--value:12;"></span></span>
+                            <span class="text-sm">Giờ</span>
+                          </div>
+                          <div class="flex flex-col p-2 bg-white/20 rounded-box text-white">
+                            <span class="countdown font-mono text-3xl"><span style="--value:32;"></span></span>
+                            <span class="text-sm">Phút</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                    <a href="#slide2" class="btn btn-circle">❮</a>
+                    <a href="#slide1" class="btn btn-circle">❯</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-floating">
+            <div class="card-body space-y-4">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title">Gợi ý phối màu</h2>
+                <span class="badge badge-primary badge-outline">Tươi sáng</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="p-4 rounded-xl gradient-sunset text-slate-900 shadow-sm">
+                  <p class="text-sm">Sunset</p>
+                  <p class="text-lg font-semibold">#fef3c7 → #fbcfe8</p>
+                </div>
+                <div class="p-4 rounded-xl gradient-aurora text-slate-900 shadow-sm">
+                  <p class="text-sm">Aurora</p>
+                  <p class="text-lg font-semibold">#a5f3fc → #c7d2fe</p>
+                </div>
+                <div class="p-4 rounded-xl gradient-mint text-slate-900 shadow-sm">
+                  <p class="text-sm">Mint</p>
+                  <p class="text-lg font-semibold">#bbf7d0 → #a5f3fc</p>
+                </div>
+                <div class="p-4 rounded-xl gradient-blush text-slate-900 shadow-sm">
+                  <p class="text-sm">Blush</p>
+                  <p class="text-lg font-semibold">#fecdd3 → #e0f2fe</p>
+                </div>
+              </div>
+              <p class="text-sm opacity-70">Nhấn màu nền vào từng slide để giữ phong cách xuyên suốt.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer items-center p-4 bg-base-200 text-base-content">
+        <aside class="flex items-center gap-2">
+          <i class="ri-layout-2-line text-xl"></i>
+          <p class="font-semibold">Admin Template</p>
+        </aside>
+        <nav class="flex items-center gap-4 justify-end">
+          <a class="link link-hover" href="https://daisyui.com/">DaisyUI</a>
+          <a class="link link-hover" href="https://tailwindcss.com/">Tailwind</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div class="drawer-side">
+      <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside class="menu w-72 min-h-full bg-base-200 p-4">
+        <div class="flex items-center gap-3 px-2 pb-4 border-b border-base-300 mb-4">
+          <span class="btn btn-square btn-primary btn-sm text-lg"><i class="ri-layout-grid-fill"></i></span>
+          <div>
+            <p class="font-bold">Daisy Admin</p>
+            <p class="text-xs opacity-70">Template copy nhanh</p>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+          <li><a href="table.html"><i class="ri-table-line"></i>Table</a></li>
+          <li><a href="form.html"><i class="ri-file-list-3-line"></i>Form</a></li>
+          <li><a href="carousel.html"><i class="ri-slideshow-3-line"></i>Carousel</a></li>
+          <li><a href="typography.html"><i class="ri-font-size-2"></i>Typography</a></li>
+          <li><a href="form-steps.html"><i class="ri-route-line"></i>Form Steps</a></li>
+          <li><a href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+          <li><a href="settings.html"><i class="ri-settings-3-line"></i>Settings</a></li>
+          <li class="menu-title">Auth</li>
+          <li><a href="auth-login.html"><i class="ri-login-circle-line"></i>Login</a></li>
+          <li><a href="auth-register.html"><i class="ri-user-add-line"></i>Register</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <dialog id="confirm-modal" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Xác nhận</h3>
+      <p class="py-4" id="modal-message">Bạn có chắc chắn muốn tiếp tục?</p>
+      <div class="modal-action">
+        <button class="btn" data-drawer-close>Hủy</button>
+        <button class="btn btn-primary" id="modal-confirm">Đồng ý</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/modal.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>
