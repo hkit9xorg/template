@@ -1,6 +1,8 @@
 /* Custom tweaks for the admin template */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-  --navbar-height: 4rem;
+  --navbar-height: 4.5rem;
 }
 
 body {
@@ -8,10 +10,17 @@ body {
   background-size: 20px 20px;
   background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
                     linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .main-container {
-  padding-top: var(--navbar-height);
+  padding-top: calc(var(--navbar-height) + 1rem);
+}
+
+.navbar.fixed {
+  min-height: var(--navbar-height);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .drawer-side a.active {
