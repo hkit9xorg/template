@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | Admin Template</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../css/custom.css" />
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="font-sans">
+  <div class="drawer lg:drawer-open">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col">
+      <div class="navbar bg-base-100 shadow-md fixed top-0 inset-x-0 z-30">
+        <div class="flex-none lg:hidden">
+          <label for="drawer-toggle" class="btn btn-square btn-ghost">
+            <i class="ri-menu-2-line text-xl"></i>
+          </label>
+        </div>
+        <div class="flex-1 px-2 lg:px-4">
+          <a class="text-xl font-bold">Profile</a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-ghost btn-circle" aria-label="Notifications">
+            <i class="ri-notification-3-line text-xl"></i>
+          </button>
+          <button class="btn btn-ghost btn-circle" data-theme-toggle aria-label="Toggle theme">
+            <i id="theme-icon" class="ri-sun-line text-xl"></i>
+          </button>
+          <button class="btn btn-outline btn-sm btn-icon" onclick="showToast('Đã lưu hồ sơ', 'success')"><i class="ri-save-3-line"></i>Lưu</button>
+        </div>
+      </div>
+
+      <main class="main-container p-4 lg:p-6 space-y-6 animate__animated animate__fadeIn">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="card bg-base-100 shadow-sm">
+            <div class="card-body items-center text-center">
+              <div class="avatar">
+                <div class="w-28 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src="https://i.pravatar.cc/200?img=57" alt="Avatar" />
+                </div>
+              </div>
+              <h2 class="card-title mt-2">Minh Khoa</h2>
+              <p class="opacity-70">Product Manager</p>
+              <div class="badge badge-outline mt-2">Premium</div>
+              <div class="grid grid-cols-3 gap-2 w-full mt-4">
+                <div class="stat place-items-center">
+                  <div class="stat-title">Dự án</div>
+                  <div class="stat-value text-primary text-xl">18</div>
+                </div>
+                <div class="stat place-items-center">
+                  <div class="stat-title">Nhiệm vụ</div>
+                  <div class="stat-value text-primary text-xl">54</div>
+                </div>
+                <div class="stat place-items-center">
+                  <div class="stat-title">Điểm</div>
+                  <div class="stat-value text-primary text-xl">4.8</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-sm lg:col-span-2">
+            <div class="card-body space-y-4">
+              <div class="flex items-center justify-between">
+                <h2 class="card-title">Cập nhật thông tin</h2>
+                <div class="space-x-2">
+                  <button class="btn btn-ghost btn-sm" onclick="showToast('Đã hủy thay đổi')">Hủy</button>
+                  <button class="btn btn-primary btn-sm btn-icon" onclick="showToast('Lưu thành công', 'success')"><i class="ri-check-line"></i>Lưu</button>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <label class="form-control">
+                  <div class="label"><span class="label-text">Họ tên</span></div>
+                  <input type="text" class="input input-bordered" value="Minh Khoa" />
+                </label>
+                <label class="form-control">
+                  <div class="label"><span class="label-text">Email</span></div>
+                  <input type="email" class="input input-bordered" value="khoa@example.com" />
+                </label>
+                <label class="form-control">
+                  <div class="label"><span class="label-text">Số điện thoại</span></div>
+                  <input type="tel" class="input input-bordered" value="0901234567" />
+                </label>
+                <label class="form-control">
+                  <div class="label"><span class="label-text">Chức danh</span></div>
+                  <input type="text" class="input input-bordered" value="Product Manager" />
+                </label>
+              </div>
+              <label class="form-control">
+                <div class="label"><span class="label-text">Giới thiệu</span></div>
+                <textarea class="textarea textarea-bordered" rows="4">Thích xây sản phẩm tối ưu trải nghiệm người dùng.</textarea>
+              </label>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer items-center p-4 bg-base-200 text-base-content">
+        <aside class="flex items-center gap-2">
+          <i class="ri-layout-2-line text-xl"></i>
+          <p class="font-semibold">Admin Template</p>
+        </aside>
+        <nav class="flex items-center gap-4 justify-end">
+          <a class="link link-hover" href="https://daisyui.com/">DaisyUI</a>
+          <a class="link link-hover" href="https://tailwindcss.com/">Tailwind</a>
+        </nav>
+      </footer>
+    </div>
+
+    <div class="drawer-side">
+      <label for="drawer-toggle" aria-label="close sidebar" class="drawer-overlay"></label>
+      <aside class="menu w-72 min-h-full bg-base-200 p-4">
+        <div class="flex items-center gap-3 px-2 pb-4 border-b border-base-300 mb-4">
+          <span class="btn btn-square btn-primary btn-sm text-lg"><i class="ri-layout-grid-fill"></i></span>
+          <div>
+            <p class="font-bold">Daisy Admin</p>
+            <p class="text-xs opacity-70">Template copy nhanh</p>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="dashboard.html"><i class="ri-dashboard-line"></i>Dashboard</a></li>
+          <li><a href="table.html"><i class="ri-table-line"></i>Table</a></li>
+          <li><a href="form.html"><i class="ri-file-list-3-line"></i>Form</a></li>
+          <li><a href="profile.html"><i class="ri-user-3-line"></i>Profile</a></li>
+          <li><a href="settings.html"><i class="ri-settings-3-line"></i>Settings</a></li>
+          <li class="menu-title">Auth</li>
+          <li><a href="auth-login.html"><i class="ri-login-circle-line"></i>Login</a></li>
+          <li><a href="auth-register.html"><i class="ri-user-add-line"></i>Register</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/theme.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>
